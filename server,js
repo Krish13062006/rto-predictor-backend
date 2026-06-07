@@ -1,8 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const pool = require('./db'); // Sirf ek baar import karo
+const pool = require('./db'); // Sirf ek baar, path sahi hona chahiye
 const app = express();
-
 // Ab aap 'pool' ko direct use kar sakte ho apne database queries ke liye
 
 app.use(express.json());
