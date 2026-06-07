@@ -27,5 +27,4 @@ pool.connect((err, client, release) => {
   console.log('✅ Supabase Cloud Database successfully connect ho gaya hai!');
   release();
 });
-
 module.exports = pool;
