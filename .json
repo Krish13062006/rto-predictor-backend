@@ -1,0 +1,6 @@
+{
+  "order_id": "ORD123",
+  "merchant_id": 1,
+  "customer_name": "John Doe",
+  "phone_number": "9876543210"
+}
