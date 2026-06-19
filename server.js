@@ -1,11 +1,15 @@
-// RTO Risk Evaluation API
+require('dotenv').config();
+const express = require('express');
+const pool = require('./db');
+const app = express(); // <--- Ye line hona zaroori hai
+app.use(express.json());
+
+// --- Yahan aapka post request wala code aayega ---
 app.post('/api/evaluate-risk', async (req, res) => {
     try {
         const { order_id, merchant_id, customer_name, phone_number } = req.body;
-        
         console.log("Received Data:", req.body);
 
-        // Database mein data insert karne ki query
         const query = `
             INSERT INTO orders (order_id, merchant_id, phone_number, status) 
             VALUES ($1, $2, $3, $4) 
@@ -23,4 +27,9 @@ app.post('/api/evaluate-risk', async (req, res) => {
         console.error("Database Error:", err.message);
         res.status(500).json({ error: "Server Error", details: err.message });
     }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
